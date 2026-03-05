@@ -1,0 +1,166 @@
+.cards {
+  position: relative;
+  margin-top: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.card-control {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 1px;
+  height: 1px;
+}
+
+.card {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 118px;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  background: #313637;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  padding: 20px 11px 20px 20px;
+  text-decoration: none;
+}
+
+.card-control:checked+.card {
+  border-color: var(--accent);
+}
+
+.card__badge {
+  position: absolute;
+  top: 0;
+  right: 27px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  background: var(--sale);
+  color: #fff;
+  font-family: "Gilroy", "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16.9px;
+  padding: 3px 6px;
+}
+
+.card--featured .card__badge {
+  right: 50px;
+}
+
+.card__hit {
+  position: absolute;
+  right: 14px;
+  top: 6px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16.9px;
+  letter-spacing: 0.39px;
+  text-transform: lowercase;
+  animation: pulseSale 1.4s ease-in-out infinite;
+}
+
+.card__content {
+  display: grid;
+  grid-template-columns: 107px 120px;
+  align-items: flex-start;
+  column-gap: 30px;
+}
+
+.card__period {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.2px;
+}
+
+.card__price {
+  margin: 12px 0 0;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: nowrap;
+  color: #fff;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: "lnum" 1, "pnum" 1;
+}
+
+.card--featured .card__price {
+  color: var(--accent);
+}
+
+.card__old {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.8px;
+  letter-spacing: 0;
+  white-space: nowrap;
+  color: #919191;
+  text-decoration: line-through;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: "lnum" 1, "pnum" 1;
+}
+
+.card__full,
+.card__expired {
+  display: none;
+}
+
+.card__text {
+  margin: 21px 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18.2px;
+  color: #cdcdcd;
+}
+
+.card__text--desktop {
+  display: none;
+}
+
+.discount-expired .card__price,
+.discount-expired .card__old {
+  display: none;
+}
+
+.discount-expired .card__full {
+  display: block;
+  margin: 12px 0 0;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: nowrap;
+  color: #fff;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: "lnum" 1, "pnum" 1;
+  animation: priceSwap 0.3s ease-out both;
+}
+
+.discount-expired .card--featured .card__full {
+  color: var(--accent);
+}
+
+.discount-expired .card__expired {
+  display: block;
+  margin: 5px 0 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sale);
+}

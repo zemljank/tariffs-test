@@ -1,0 +1,36 @@
+.guarantee {
+  width: 288px;
+  min-height: 194px;
+  margin: 22px auto 0;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface-alt);
+  padding: 12px;
+}
+
+.guarantee__tag {
+  display: inline-flex;
+  width: 265px;
+  min-height: 41px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(129, 254, 149, 0.6);
+  background: #2d4934;
+  color: var(--success);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.8px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+
+.guarantee p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16.9px;
+  color: #cdcdcd;
+}

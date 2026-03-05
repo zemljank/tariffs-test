@@ -1,0 +1,1044 @@
+/* >>> scss/base/tokens.scss */
+:root {
+  --page: #232829;
+  --surface: #313637;
+  --surface-alt: #2d3233;
+  --offer: #1d6847;
+  --accent: #fdb056;
+  --sale: #fd5656;
+  --success: #81fe95;
+  --timer: #ffbb00;
+  --danger: #ff6767;
+  --border: #484d4e;
+  --muted: #9b9b9b;
+  --text: #ffffff;
+}
+/* <<< scss/base/tokens.scss */
+/* >>> scss/base/reset.scss */
+* {
+  box-sizing: border-box;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(253, 176, 86, 0.08), transparent 42%),
+    radial-gradient(circle at 90% 10%, rgba(129, 254, 149, 0.06), transparent 35%),
+    var(--page);
+  color: var(--text);
+  font-family: "Montserrat", "Avenir Next", "Segoe UI", sans-serif;
+}
+/* <<< scss/base/reset.scss */
+/* >>> scss/layout/offer-bar.scss */
+.offer-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  --offer-underlay-height: 12px;
+  --offer-radius-floating: 40px;
+  width: min(100%, 320px);
+  height: 74px;
+  margin: 0 auto;
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-top: 1px solid var(--border);
+  border-radius: 0;
+  background: rgba(29, 104, 71, 0.96);
+  text-align: center;
+  padding-top: 8px;
+  transition: border-radius 0.18s ease;
+}
+
+html.offer-floating .offer-bar {
+  border-radius: var(--offer-radius-floating) var(--offer-radius-floating) 0 0;
+}
+
+.offer-bar::after {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 100%;
+  width: calc(100% + 2px);
+  height: var(--offer-underlay-height);
+  background: var(--page);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  pointer-events: none;
+}
+
+.offer-bar__label {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18.2px;
+  color: #edfff3;
+}
+
+.offer-bar__timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  color: var(--timer);
+}
+
+.offer-bar__star {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.offer-bar__part,
+.offer-bar__colon {
+  font-family: "Raleway", "Montserrat", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.offer-bar__part {
+  font-size: 28px;
+  line-height: 110%;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: "lnum" 1, "pnum" 1;
+}
+
+.offer-bar__colon {
+  font-size: 28px;
+  line-height: 36.4px;
+}
+
+.offer-bar__timer--critical {
+  color: var(--danger);
+  animation: timerCritical 0.8s steps(2, end) infinite;
+}
+/* <<< scss/layout/offer-bar.scss */
+/* >>> scss/layout/tariffs-layout.scss */
+.page {
+  padding: 0 0 24px;
+}
+
+.tariffs {
+  width: min(100%, 320px);
+  margin: 0 auto;
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  border-radius: 0 0 40px 40px;
+  background:
+    linear-gradient(90deg, rgba(44, 50, 51, 0.28) 0%, rgba(35, 40, 41, 0.12) 36%, rgba(35, 40, 41, 0.05) 100%),
+    var(--page);
+  padding: 20px 16px 20px;
+}
+
+.tariffs__title {
+  width: 288px;
+  margin: 0;
+  font-size: 22px;
+  line-height: 24.2px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-align: left;
+}
+
+.tariffs__title span {
+  color: var(--accent);
+}
+
+.tariffs__layout {
+  margin-top: 24px;
+}
+
+.tariffs__hero {
+  position: relative;
+  width: 99.28px;
+  height: 200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.tariffs__hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 94.3937px;
+  height: 20.8605px;
+  background: linear-gradient(180deg, rgba(35, 40, 41, 0) 0%, rgba(35, 40, 41, 1) 100%);
+  pointer-events: none;
+}
+
+.tariffs__hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.tariffs__panel {
+  width: 288px;
+  margin: 0 auto;
+}
+/* <<< scss/layout/tariffs-layout.scss */
+/* >>> scss/components/cards.scss */
+.cards {
+  position: relative;
+  margin-top: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.card-control {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 1px;
+  height: 1px;
+}
+
+.card {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 118px;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  background: #313637;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  padding: 20px 11px 20px 20px;
+  text-decoration: none;
+}
+
+.card-control:checked+.card {
+  border-color: var(--accent);
+}
+
+.card__badge {
+  position: absolute;
+  top: 0;
+  right: 27px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  background: var(--sale);
+  color: #fff;
+  font-family: "Gilroy", "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16.9px;
+  padding: 3px 6px;
+}
+
+.card--featured .card__badge {
+  right: 50px;
+}
+
+.card__hit {
+  position: absolute;
+  right: 14px;
+  top: 6px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16.9px;
+  letter-spacing: 0.39px;
+  text-transform: lowercase;
+  animation: pulseSale 1.4s ease-in-out infinite;
+}
+
+.card__content {
+  display: grid;
+  grid-template-columns: 107px 120px;
+  align-items: flex-start;
+  column-gap: 30px;
+}
+
+.card__period {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.2px;
+}
+
+.card__price {
+  margin: 12px 0 0;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: nowrap;
+  color: #fff;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: "lnum" 1, "pnum" 1;
+}
+
+.card--featured .card__price {
+  color: var(--accent);
+}
+
+.card__old {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.8px;
+  letter-spacing: 0;
+  white-space: nowrap;
+  color: #919191;
+  text-decoration: line-through;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: "lnum" 1, "pnum" 1;
+}
+
+.card__full,
+.card__expired {
+  display: none;
+}
+
+.card__text {
+  margin: 21px 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18.2px;
+  color: #cdcdcd;
+}
+
+.card__text--desktop {
+  display: none;
+}
+
+.discount-expired .card__price,
+.discount-expired .card__old {
+  display: none;
+}
+
+.discount-expired .card__full {
+  display: block;
+  margin: 12px 0 0;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: nowrap;
+  color: #fff;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: "lnum" 1, "pnum" 1;
+  animation: priceSwap 0.3s ease-out both;
+}
+
+.discount-expired .card--featured .card__full {
+  color: var(--accent);
+}
+
+.discount-expired .card__expired {
+  display: block;
+  margin: 5px 0 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sale);
+}
+/* <<< scss/components/cards.scss */
+/* >>> scss/components/attention.scss */
+.attention {
+  width: 288px;
+  min-height: 76px;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  align-items: start;
+  column-gap: 6px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: #313637;
+  padding: 14px 12px;
+}
+
+.attention__icon {
+  color: var(--accent);
+  font-size: 24px;
+  line-height: 1;
+  text-align: center;
+  margin-top: 0;
+}
+
+.attention__text {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15.6px;
+  color: #dcdcdc;
+}
+/* <<< scss/components/attention.scss */
+/* >>> scss/components/agreement.scss */
+.agreement {
+  position: relative;
+  width: 292px;
+  min-height: 42px;
+  margin-top: 16px;
+  margin-left: 0;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  background: transparent;
+  padding: 0;
+}
+
+.agreement input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.agreement__box {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin-top: 0;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 1px solid #677071;
+  background: #252a2b;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.agreement input:checked + .agreement__box {
+  border-color: var(--accent);
+  background: rgba(253, 176, 86, 0.16);
+}
+
+.agreement input:checked + .agreement__box::after {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 5px;
+  width: 8px;
+  height: 14px;
+  border-right: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  transform: rotate(35deg);
+}
+
+.agreement__text {
+  font-family: "PT Root UI", "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.4px;
+  color: #dcdcdc;
+}
+
+.agreement__link {
+  color: #dcdcdc;
+  text-decoration: underline;
+  text-decoration-color: rgba(253, 176, 86, 0.7);
+  text-underline-offset: 2px;
+}
+
+.agreement--error {
+  border-color: transparent;
+}
+
+.agreement--error .agreement__box {
+  border-color: var(--danger);
+  background: rgba(255, 103, 103, 0.08);
+}
+/* <<< scss/components/agreement.scss */
+/* >>> scss/components/cta.scss */
+.buy-btn {
+  width: 288px;
+  height: 55px;
+  margin-top: 16px;
+  border: 0;
+  border-radius: 20px;
+  background: var(--accent);
+  color: #191e1f;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23.4px;
+  cursor: pointer;
+  animation: blinkSoft 1.15s steps(2, end) infinite;
+}
+
+.form-error {
+  display: none;
+  margin: 8px 0 0;
+  font-size: 11px;
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.form-error--visible {
+  display: block;
+}
+
+.disclaimer {
+  width: 288px;
+  margin: 10px 0 0;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12px;
+  color: var(--muted);
+}
+/* <<< scss/components/cta.scss */
+/* >>> scss/components/guarantee.scss */
+.guarantee {
+  width: 288px;
+  min-height: 194px;
+  margin: 22px auto 0;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface-alt);
+  padding: 12px;
+}
+
+.guarantee__tag {
+  display: inline-flex;
+  width: 265px;
+  min-height: 41px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(129, 254, 149, 0.6);
+  background: #2d4934;
+  color: var(--success);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.8px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+
+.guarantee p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16.9px;
+  color: #cdcdcd;
+}
+/* <<< scss/components/guarantee.scss */
+/* >>> scss/responsive/tablet.scss */
+@media (min-width: 375px) and (max-width: 1279px) {
+  .offer-bar {
+    --offer-underlay-height: 14px;
+    --offer-radius-floating: 46px;
+    width: 375px;
+    height: 85px;
+  }
+
+  .offer-bar__label {
+    font-size: 18px;
+    line-height: 23.4px;
+  }
+
+  .offer-bar__part {
+    font-size: 32px;
+    line-height: 35.2px;
+  }
+
+  .offer-bar__colon {
+    font-size: 32px;
+    line-height: 41.6px;
+  }
+
+  .tariffs {
+    width: 375px;
+    padding: 20px 16px 20px;
+    border-radius: 0 0 46px 46px;
+  }
+
+  .tariffs__title {
+    width: 312px;
+    font-size: 24px;
+    line-height: 26.4px;
+  }
+
+  .tariffs__layout {
+    margin-top: 20px;
+  }
+
+  .tariffs__hero {
+    width: 124.1px;
+    height: 250px;
+  }
+
+  .tariffs__hero::after {
+    width: 117.9922px;
+    height: 26.0756px;
+  }
+
+  .tariffs__panel,
+  .cards,
+  .card,
+  .attention,
+  .buy-btn,
+  .disclaimer,
+  .guarantee {
+    width: 343px;
+  }
+
+  .tariffs__panel {
+    margin-top: -2px;
+  }
+
+  .cards {
+    gap: 8px;
+  }
+
+  .card {
+    min-height: 131px;
+    border-radius: 26px;
+    padding: 20px 22px 20px 30px;
+  }
+
+  .card__badge {
+    right: 30px;
+    font-size: 16px;
+    line-height: 20.8px;
+  }
+
+  .card--featured .card__badge {
+    right: 62px;
+  }
+
+  .card__hit {
+    right: 14px;
+    top: 6px;
+    font-size: 16px;
+    line-height: 20.8px;
+    letter-spacing: 0.48px;
+  }
+
+  .card__content {
+    grid-template-columns: 121px 120px;
+    column-gap: 50px;
+  }
+
+  .card__period {
+    font-size: 18px;
+    line-height: 21.6px;
+  }
+
+  .card__price,
+  .discount-expired .card__full {
+    font-size: 34px;
+    line-height: 34px;
+  }
+
+  .card__old {
+    font-size: 16px;
+    line-height: 19.2px;
+  }
+
+  .agreement {
+    width: 339px;
+    min-height: 30px;
+    margin-top: 24px;
+  }
+
+  .agreement__text {
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    line-height: 14.4px;
+  }
+
+  .buy-btn {
+    height: 63px;
+    margin-top: 20px;
+  }
+
+  .disclaimer {
+    margin-top: 20px;
+  }
+
+  .guarantee {
+    min-height: 186px;
+    margin-top: 24px;
+  }
+
+  .guarantee__tag {
+    width: 294px;
+    min-height: 44px;
+    font-size: 18px;
+    line-height: 21.6px;
+  }
+
+  .guarantee p {
+    font-size: 14px;
+    line-height: 18.2px;
+  }
+}
+/* <<< scss/responsive/tablet.scss */
+/* >>> scss/responsive/desktop.scss */
+@media (min-width: 1280px) {
+  .offer-bar {
+    --offer-underlay-height: 18px;
+    --offer-radius-floating: 60px;
+    width: min(100%, 1920px);
+    height: 103px;
+    padding-top: 8px;
+  }
+
+  .offer-bar__label {
+    font-size: 24px;
+    line-height: 31.2px;
+  }
+
+  .offer-bar__timer {
+    margin-top: 4px;
+    gap: 8px;
+  }
+
+  .offer-bar__part {
+    font-size: 40px;
+    line-height: 44px;
+  }
+
+  .offer-bar__colon {
+    font-size: 40px;
+    line-height: 52px;
+  }
+
+  .page {
+    width: min(100%, 1920px);
+    margin: 0 auto;
+    padding-bottom: 0;
+  }
+
+  .tariffs {
+    width: min(100%, 1920px);
+    border-radius: 0 0 60px 60px;
+    padding: 50px max(16px, calc((100% - 1216px) / 2)) 150px;
+  }
+
+  .tariffs__title {
+    width: 826px;
+    margin: 0;
+    text-align: left;
+    font-size: 40px;
+    line-height: 44px;
+    letter-spacing: 0.4px;
+  }
+
+  .tariffs__layout {
+    width: 1216px;
+    margin: 110px 0 0;
+    display: grid;
+    grid-template-columns: 380.73px 748px;
+    column-gap: 87px;
+  }
+
+  .tariffs__hero {
+    width: 380.73px;
+    height: 767px;
+    margin: 52px 0 0;
+  }
+
+  .tariffs__hero::after {
+    width: 362px;
+    height: 80px;
+  }
+
+  .tariffs__panel {
+    width: 748px;
+    margin: 0;
+  }
+
+  .cards {
+    width: 748px;
+    gap: 14px;
+    grid-template-columns: repeat(3, 240px);
+  }
+
+  .card {
+    width: 240px;
+    min-height: 335px;
+    border-radius: 40px;
+    border-width: 2px;
+    padding: 70px 18px 23px;
+  }
+
+  .card--featured {
+    width: 748px;
+    min-height: 190px;
+    border-radius: 34px;
+    border-width: 2px;
+    grid-column: 1 / -1;
+    padding: 30px 80px 26px 19px;
+  }
+
+  .card__badge {
+    top: -1px;
+    left: 51px;
+    right: auto;
+    font-size: 22px;
+    line-height: 28.6px;
+    padding: 5px 8px;
+  }
+
+  .card--featured .card__badge {
+    top: 0px;
+    left: 50px;
+    right: 625px;
+  }
+
+  .card__hit {
+    right: 20px;
+    top: 10px;
+    font-size: 22px;
+    line-height: 28.6px;
+    letter-spacing: 0.66px;
+  }
+
+  .card--featured .card__content {
+    width: 546px;
+    margin-left: auto;
+    grid-template-columns: 178px 328px;
+    column-gap: 40px;
+    align-items: center;
+  }
+
+  .card--featured .card__content>div {
+    width: 178px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card:not(.card--featured) .card__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 204px;
+    min-height: 242px;
+    margin: 0 auto;
+    row-gap: 40px;
+  }
+
+  .card:not(.card--featured) .card__content>div {
+    width: 168px;
+  }
+
+  .card:not(.card--featured) .card__text {
+    width: 204px;
+    margin: 0;
+    padding: 20px 0 0 0;
+  }
+
+  .card__period {
+    text-align: center;
+    font-size: 26px;
+    line-height: 31.2px;
+  }
+
+  .card--featured .card__period {
+    margin: 0;
+  }
+
+  .card__price,
+  .discount-expired .card__full {
+    font-size: 50px;
+    line-height: 50px;
+  }
+
+  .card--featured .card__price,
+  .discount-expired .card--featured .card__full {
+    width: 178px;
+    margin: 16px 0 0;
+    text-align: center;
+  }
+
+  .card__old {
+    font-size: 24px;
+    line-height: 28.8px;
+  }
+
+  .card--featured .card__old {
+    width: 100px;
+    margin: 0;
+    align-self: flex-end;
+  }
+
+  .card:not(.card--featured) .card__price,
+  .card:not(.card--featured) .card__old,
+  .discount-expired .card:not(.card--featured) .card__full {
+    width: 100%;
+    text-align: end;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .discount-expired .card--featured .card__full {
+    font-size: 38px;
+    line-height: 38px;
+    margin-top: 20px;
+  }
+
+  .card__text {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 20.8px;
+  }
+
+  .card__text--mobile {
+    display: none;
+  }
+
+  .card__text--desktop {
+    display: block;
+    width: 328px;
+    margin: 0;
+    padding: 10px 0;
+  }
+
+  .attention {
+    width: 499px;
+    min-height: 78px;
+    margin-top: 20px;
+    grid-template-columns: 24px 1fr;
+    padding: 18px 20px;
+  }
+
+  .attention__text {
+    font-size: 16px;
+    line-height: 20.8px;
+  }
+
+  .agreement {
+    width: 649px;
+    min-height: 36px;
+    margin-top: 30px;
+  }
+
+  .agreement__box {
+    width: 32px;
+    height: 32px;
+  }
+
+  .agreement input:checked+.agreement__box::after {
+    left: 10px;
+    top: 6px;
+    width: 9px;
+    height: 15px;
+  }
+
+  .agreement__text {
+    font-size: 16px;
+    line-height: 17.6px;
+  }
+
+  .buy-btn {
+    width: 352px;
+    height: 66px;
+    margin-top: 16px;
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .disclaimer {
+    width: 748px;
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 16.8px;
+  }
+
+  .guarantee {
+    width: 1216px;
+    min-height: 231px;
+    margin: 66px 0 0;
+    border-radius: 30px;
+    padding: 20px;
+  }
+
+  .guarantee__tag {
+    width: 461px;
+    min-height: 68px;
+    border-radius: 999px;
+    font-size: 28px;
+    line-height: 33.6px;
+    padding: 16px 30px 18px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+  }
+
+  .guarantee p {
+    font-size: 24px;
+    line-height: 31.2px;
+  }
+}
+/* <<< scss/responsive/desktop.scss */
+/* >>> scss/utilities/animations.scss */
+@keyframes blinkSoft {
+
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0.45;
+  }
+}
+
+@keyframes timerCritical {
+
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0.32;
+  }
+}
+
+@keyframes priceSwap {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseSale {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+/* <<< scss/utilities/animations.scss */

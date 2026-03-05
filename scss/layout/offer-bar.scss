@@ -1,0 +1,84 @@
+.offer-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  --offer-underlay-height: 12px;
+  --offer-radius-floating: 40px;
+  width: min(100%, 320px);
+  height: 74px;
+  margin: 0 auto;
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-top: 1px solid var(--border);
+  border-radius: 0;
+  background: rgba(29, 104, 71, 0.96);
+  text-align: center;
+  padding-top: 8px;
+  transition: border-radius 0.18s ease;
+}
+
+html.offer-floating .offer-bar {
+  border-radius: var(--offer-radius-floating) var(--offer-radius-floating) 0 0;
+}
+
+.offer-bar::after {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 100%;
+  width: calc(100% + 2px);
+  height: var(--offer-underlay-height);
+  background: var(--page);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  pointer-events: none;
+}
+
+.offer-bar__label {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18.2px;
+  color: #edfff3;
+}
+
+.offer-bar__timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  color: var(--timer);
+}
+
+.offer-bar__star {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.offer-bar__part,
+.offer-bar__colon {
+  font-family: "Raleway", "Montserrat", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.offer-bar__part {
+  font-size: 28px;
+  line-height: 110%;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-feature-settings: "lnum" 1, "pnum" 1;
+}
+
+.offer-bar__colon {
+  font-size: 28px;
+  line-height: 36.4px;
+}
+
+.offer-bar__timer--critical {
+  color: var(--danger);
+  animation: timerCritical 0.8s steps(2, end) infinite;
+}
+

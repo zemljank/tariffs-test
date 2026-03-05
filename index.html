@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Тарифы</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Raleway:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="offer-bar">
+      <p class="offer-bar__label">Успейте открыть пробную неделю</p>
+      <div class="offer-bar__timer" id="timer" data-seconds="120">
+        <span class="offer-bar__star">✦</span>
+        <span class="offer-bar__part" data-minutes>02</span>
+        <span class="offer-bar__colon">:</span>
+        <span class="offer-bar__part" data-seconds-part>00</span>
+        <span class="offer-bar__star">✦</span>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="tariffs">
+        <h1 class="tariffs__title">
+          Выбери подходящий для себя <span>тариф</span>
+        </h1>
+
+        <div class="tariffs__layout">
+          <div class="tariffs__hero">
+            <picture>
+              <source media="(max-width: 375px)" srcset="./public/hero-man-mobile.png" />
+              <img src="./public/hero-man.png" alt="Фитнес-модель" />
+            </picture>
+          </div>
+
+          <div class="tariffs__panel">
+            <div class="cards">
+              <input class="card-control" type="radio" name="tariff" id="tariff-forever" checked />
+              <label class="card card--featured" for="tariff-forever" data-id="forever">
+                <span class="card__badge">-70%</span>
+                <span class="card__hit">хит!</span>
+                <div class="card__content">
+                  <div>
+                    <p class="card__period">Навсегда</p>
+                    <p class="card__price" data-price-discount>5990 ₽</p>
+                    <p class="card__old" data-old-price>18990 ₽</p>
+                    <p class="card__full" data-price-full>18990 ₽</p>
+                    <p class="card__expired">Акция завершена</p>
+                  </div>
+                  <p class="card__text card__text--mobile">Всегда быть в форме</p>
+                  <p class="card__text card__text--desktop">
+                    Для тех, кто хочет всегда быть в форме и поддерживать здоровье
+                  </p>
+                </div>
+              </label>
+
+              <input class="card-control" type="radio" name="tariff" id="tariff-3m" />
+              <label class="card" for="tariff-3m" data-id="3-months">
+                <span class="card__badge">-50%</span>
+                <div class="card__content">
+                  <div>
+                    <p class="card__period">3 месяца</p>
+                    <p class="card__price" data-price-discount>1990 ₽</p>
+                    <p class="card__old" data-old-price>3990 ₽</p>
+                    <p class="card__full" data-price-full>3990 ₽</p>
+                    <p class="card__expired">Акция завершена</p>
+                  </div>
+                  <p class="card__text">Привести тело в порядок</p>
+                </div>
+              </label>
+
+              <input class="card-control" type="radio" name="tariff" id="tariff-1m" />
+              <label class="card" for="tariff-1m" data-id="1-month">
+                <span class="card__badge">-40%</span>
+                <div class="card__content">
+                  <div>
+                    <p class="card__period">1 месяц</p>
+                    <p class="card__price" data-price-discount>990 ₽</p>
+                    <p class="card__old" data-old-price>1690 ₽</p>
+                    <p class="card__full" data-price-full>1690 ₽</p>
+                    <p class="card__expired">Акция завершена</p>
+                  </div>
+                  <p class="card__text card__text--mobile">Получить первые результаты</p>
+                  <p class="card__text card__text--desktop">Чтобы получить первые результаты</p>
+                </div>
+              </label>
+
+              <input class="card-control" type="radio" name="tariff" id="tariff-1w" />
+              <label class="card" for="tariff-1w" data-id="1-week">
+                <span class="card__badge">-30%</span>
+                <div class="card__content">
+                  <div>
+                    <p class="card__period">1 неделя</p>
+                    <p class="card__price" data-price-discount>690 ₽</p>
+                    <p class="card__old" data-old-price>990 ₽</p>
+                    <p class="card__full" data-price-full>990 ₽</p>
+                    <p class="card__expired">Акция завершена</p>
+                  </div>
+                  <p class="card__text">Чтобы просто начать</p>
+                </div>
+              </label>
+            </div>
+
+            <div class="attention">
+              <span class="attention__icon">!</span>
+              <span class="attention__text">
+                Следуя плану на 3 месяца и более, люди получают в 2 раза лучший результат, чем за 1
+                месяц
+              </span>
+            </div>
+
+            <label class="agreement" id="agreement-wrap">
+              <input id="agreement" type="checkbox" />
+              <span class="agreement__box" aria-hidden="true"></span>
+              <span class="agreement__text">
+                Я согласен с <span class="agreement__link">офертой рекуррентных платежей</span> и
+                <span class="agreement__link">Политикой конфиденциальности</span>
+              </span>
+            </label>
+
+            <button class="buy-btn" id="buy-btn">Купить</button>
+            <p class="form-error" id="form-error">
+              Перед покупкой отметьте чекбокс согласия.
+            </p>
+
+            <p class="disclaimer">
+              Нажимая кнопку «Купить», Пользователь соглашается на разовое списание денежных средств
+              для получения пожизненного доступа к приложению. Пользователь соглашается, что данные
+              кредитной/дебетовой карты будут сохранены для осуществления покупок дополнительных
+              услуг сервиса в случае желания пользователя.
+            </p>
+          </div>
+        </div>
+        <section class="guarantee">
+          <div class="guarantee__tag">гарантия возврата 30 дней</div>
+          <p>
+            Мы уверены, что наш план сработает для тебя и ты увидишь видимые результаты уже через 4
+            недели! Мы даже готовы полностью вернуть твои деньги в течение 30 дней с момента
+            покупки, если ты не получишь видимых результатов.
+          </p>
+        </section>
+      </section>
+    </main>
+
+    <script>
+      (function () {
+        const root = document.documentElement;
+        const timer = document.getElementById("timer");
+        const minutesEl = timer.querySelector("[data-minutes]");
+        const secondsEl = timer.querySelector("[data-seconds-part]");
+        const checkbox = document.getElementById("agreement");
+        const agreementWrap = document.getElementById("agreement-wrap");
+        const buyBtn = document.getElementById("buy-btn");
+        const formError = document.getElementById("form-error");
+
+        let seconds = Number(timer.dataset.seconds || 120);
+
+        function syncOfferFloating() {
+          root.classList.toggle("offer-floating", window.scrollY > 0);
+        }
+
+        function renderTimer() {
+          const mm = String(Math.floor(seconds / 60)).padStart(2, "0");
+          const ss = String(seconds % 60).padStart(2, "0");
+          minutesEl.textContent = mm;
+          secondsEl.textContent = ss;
+
+          if (seconds <= 30 && seconds > 0) {
+            timer.classList.add("offer-bar__timer--critical");
+          } else {
+            timer.classList.remove("offer-bar__timer--critical");
+          }
+
+          if (seconds === 0) {
+            root.classList.add("discount-expired");
+          }
+        }
+
+        renderTimer();
+        syncOfferFloating();
+
+        window.addEventListener("scroll", syncOfferFloating, { passive: true });
+
+        const interval = setInterval(() => {
+          seconds -= 1;
+          if (seconds <= 0) {
+            seconds = 0;
+            clearInterval(interval);
+          }
+          renderTimer();
+        }, 1000);
+
+        checkbox.addEventListener("change", () => {
+          if (checkbox.checked) {
+            agreementWrap.classList.remove("agreement--error");
+            formError.classList.remove("form-error--visible");
+          }
+        });
+
+        buyBtn.addEventListener("click", () => {
+          if (!checkbox.checked) {
+            agreementWrap.classList.add("agreement--error");
+            formError.classList.add("form-error--visible");
+          } else {
+            agreementWrap.classList.remove("agreement--error");
+            formError.classList.remove("form-error--visible");
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
