@@ -19,3 +19,4 @@ next-env.d.ts
 # Local/system files
 .DS_Store
 .tmp_fig/
+.vercel

@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/zemljank/tariffs-test/actions/workflows/ci.yml/badge.svg)](https://github.com/zemljank/tariffs-test/actions/workflows/ci.yml)
 
+Live demo: [tariffs-test-eight.vercel.app](https://tariffs-test-eight.vercel.app)
+
 Тестовое задание (React + Next + Tailwind) с реализацией экрана тарифов по макету Figma.
 
 ## Что реализовано
