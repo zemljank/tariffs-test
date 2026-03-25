@@ -1,5 +1,7 @@
 # Tariffs Test
 
+[![CI](https://github.com/zemljank/tariffs-test/actions/workflows/ci.yml/badge.svg)](https://github.com/zemljank/tariffs-test/actions/workflows/ci.yml)
+
 Тестовое задание (React + Next + Tailwind) с реализацией экрана тарифов по макету Figma.
 
 ## Что реализовано
