@@ -63,19 +63,6 @@ html.offer-floating .offer-bar {
   border-radius: var(--offer-radius-floating) var(--offer-radius-floating) 0 0;
 }
 
-.offer-bar::after {
-  content: "";
-  position: absolute;
-  left: -1px;
-  top: 100%;
-  width: calc(100% + 2px);
-  height: var(--offer-underlay-height);
-  background: var(--page);
-  border-left: 1px solid var(--border);
-  border-right: 1px solid var(--border);
-  pointer-events: none;
-}
-
 .offer-bar__label {
   margin: 0;
   font-size: 14px;

@@ -46,6 +46,19 @@ npm run check
 3. typecheck;
 4. production build.
 
+## Тесты
+
+```bash
+npm run test:run
+```
+
+Покрыты ключевые сценарии:
+
+- форматирование цен и расчет скидки (`src/lib/utils`);
+- обработка ошибок и фильтрация данных API (`src/lib/api`);
+- поведение таймера и вызов `onExpire` (`HeaderTimer`);
+- UX-сценарии покупки: валидация чекбокса и завершение акции (`TariffsList`).
+
 ## Структура SCSS
 
 SCSS разложен по папкам:
